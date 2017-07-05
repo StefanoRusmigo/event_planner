@@ -1,0 +1,7 @@
+<%  @events.each do |event| %>
+<%= event.name %></br>
+<%= event.location %></br>
+<%= event.date %></br>
+created by <%= event.users.first.name%>
+<hr>
+<% end %>
