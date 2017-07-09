@@ -1,2 +1,18 @@
 <h1><%= @user.name %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>Events atteding</h3>
+<h5>Upcoming Events</h5>
+<% @user.attended_events.upcoming.each do |event| %>
+<ul>
+	<li><%= event.name %> </li>	
+	<%= link_to "Invite", invitations_new_path(event_id:event.id) %>	
+
+</ul>
+<% end %>
+<h5>Previous Events</h5>
+
+<% @user.attended_events.past.each do |event| %>
+<ul>
+	<li><%= event.name %> </li>		
+
+</ul>
+<% end %>

@@ -6,10 +6,10 @@ class EventsController < ApplicationController
 
 	def create
 		user = current_user
-		user.events.build(event_params)
+		user.created_events.build(event_params)
 
 		if user.save
-			redirect_to user.events.first
+			redirect_to Event.last
 		else
 			render 'new'
 		end

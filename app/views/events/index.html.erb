@@ -1,7 +1,16 @@
-<%  @events.each do |event| %>
+<h2>Upcoming Events</h2>
+<%  Event.upcoming.each do |event| %>
 <%= event.name %></br>
 <%= event.location %></br>
 <%= event.date %></br>
-created by <%= event.users.first.name%>
+created by <%= event.creator.name%>
+<hr>
+<% end %>
+<h2>Past Events</h2>
+<%  Event.past.each do |event| %>
+<%= event.name %></br>
+<%= event.location %></br>
+<%= event.date %></br>
+created by <%= event.creator.name%>
 <hr>
 <% end %>

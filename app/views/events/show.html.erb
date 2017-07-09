@@ -1,4 +1,11 @@
 <%= @event.name %></br>
 <%= @event.location %></br>
 <%= @event.date %></br>
-created by <%= @event.users.first.name %>
+created by <%= @event.creator.name %>
+<hr>
+<% if @event.guests.any? %>
+<h3>Attentance</h3>
+<% @event.guests.find_each do |guest| %>
+	<%= guest.name %> </br>
+<% end %>
+<% end %>

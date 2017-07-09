@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'session/new'
+  get 'invitations/new'
 
-  post 'session/create'
+  post 'invitations/create'
+
+  get '/login' ,to: 'session#new'
+
+  post '/login', to:'session#create' 
 
  resources :users
  resources :events

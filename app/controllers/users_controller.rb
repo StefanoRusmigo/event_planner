@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   	user = User.new(user_params)
   	if user.save
   		flash = "User created"
-  		redirect_to session_new_path
+  		redirect_to login_path
 
   	else
   		render 'new'

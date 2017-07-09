@@ -1,5 +1,10 @@
 class Event < ApplicationRecord
-	has_many :joins
-	has_many :users, through: :joins
-	belongs_to :creators, :class_name => "User"
+	has_many :joins, foreign_key: :attended_event
+	has_many :guests, through: :joins, source: :guest
+	belongs_to :creator, :class_name => "User"
+
+	scope :upcoming, ->{where('date >= ?', Date.today)}
+	scope :past, ->{where('date < ?', Date.today)}
+
+	
 end

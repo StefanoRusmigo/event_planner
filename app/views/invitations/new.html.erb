@@ -1,0 +1,9 @@
+<h1>Invitations for <%= @event.name %> </h1>
+
+<%= form_for :invite, url:invitations_create_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.hidden_field  :event_id, :value => @event.id %>
+  <%= f.submit %>
+  <% end %>	
+
